@@ -1,0 +1,3082 @@
+  [1m[35m (340.0ms)[0m  [1m[35mCREATE DATABASE "music_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (99.2ms)[0m  [1m[35mCREATE DATABASE "music_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (41.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3812030406321535125)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20200731190117)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (11.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "email" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200731190117_create_users.rb:3
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_session_token" ON "users"  ("session_token")[0m
+  ↳ db/migrate/20200731190117_create_users.rb:10
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/migrate/20200731190117_create_users.rb:11
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200731190117"]]
+  ↳ bin/rails:9
+  [1m[35m (5.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-07-31 19:13:39.401860"], ["updated_at", "2020-07-31 19:13:39.401860"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(3812030406321535125)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/session/new" for ::1 at 2020-07-31 13:39:24 -0600
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cheers/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (20.2ms)
+Completed 500 Internal Server Error in 117ms (ActiveRecord: 0.0ms)
+
+
+
+ActionView::Template::Error - undefined method `email' for nil:NilClass:
+  app/views/sessions/new.html.erb:15:in `view template'
+  app/controllers/sessions_controller.rb:24:in `new'
+
+Started POST "/__better_errors/178378f1b138f257/variables" for ::1 at 2020-07-31 13:39:24 -0600
+Started GET "/session/new" for ::1 at 2020-07-31 13:40:44 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 365ms (Views: 363.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 13:42:25 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 90ms (Views: 50.1ms | ActiveRecord: 17.1ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 13:45:02 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 82ms (Views: 46.3ms | ActiveRecord: 13.6ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 13:45:03 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 62ms (Views: 60.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 13:47:47 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 48ms (Views: 45.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 13:49:59 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 40ms (Views: 39.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 13:50:15 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 63ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 13:50:17 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 30ms (Views: 28.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 13:50:26 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 32ms (Views: 31.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 13:50:44 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 34ms (Views: 33.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 13:51:03 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 41ms (Views: 39.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 13:54:04 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 649ms (ActiveRecord: 0.0ms)
+
+
+
+ActionView::Template::Error - undefined local variable or method `root_url' for #<#<Class:0x00007f90d5d30488>:0x00007f90d7aa49d8>:
+  app/views/layouts/application.html.erb:14:in `view template'
+  app/controllers/sessions_controller.rb:24:in `new'
+
+Started POST "/__better_errors/84513c88bab9caf9/variables" for ::1 at 2020-07-31 13:54:04 -0600
+Started GET "/session/new" for ::1 at 2020-07-31 13:54:52 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 57ms (Views: 56.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 13:55:18 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 40ms (Views: 38.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 13:55:20 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 63ms (Views: 62.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 13:55:34 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 52ms (Views: 49.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 13:55:37 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 74ms (Views: 70.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 13:55:37 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 47ms (Views: 46.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 13:55:39 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 41ms (Views: 39.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 13:55:41 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 58ms (Views: 57.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 13:55:41 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 73ms (Views: 71.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 13:58:36 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 86ms (Views: 43.3ms | ActiveRecord: 13.9ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 13:58:40 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 69ms (Views: 67.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2020-07-31 13:58:49 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"<input", "user"=>{"email"=>"johnyrose", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 3ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/8ab55ed06a326643/variables" for ::1 at 2020-07-31 13:58:49 -0600
+Started GET "/users" for ::1 at 2020-07-31 13:59:51 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.2.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/usersnew" for ::1 at 2020-07-31 13:59:57 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/usersnew"):
+  
+actionpack (5.2.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/users/new" for ::1 at 2020-07-31 14:00:01 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 85ms (Views: 50.9ms | ActiveRecord: 13.4ms)
+
+
+Started POST "/users" for ::1 at 2020-07-31 14:00:09 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"Yy4uhMcJCg67TsL7nUwUykufyovI1y6Q4Yqy1Kl//H0+2F075UINaDqNFmMcyx+Djw+gfgLjQEpXQIKZ+a6qOQ==", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (2.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "1nCi0S1Ol7pD0VuNk7E_lA"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Create (3.7ms)[0m  [1m[32mINSERT INTO "users" ("password_digest", "session_token", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["password_digest", "$2a$12$pGFK6oHOua0TqKgKqU7/5OAdS4ukssCJbyopWhWqGwxReztjBqQvS"], ["session_token", "1nCi0S1Ol7pD0VuNk7E_lA"], ["email", "test"], ["created_at", "2020-07-31 20:00:10.109922"], ["updated_at", "2020-07-31 20:00:10.109922"]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (10.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "test"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "ZMssNELRN_pbrbZPaJx1Cg"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Update (2.0ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "ZMssNELRN_pbrbZPaJx1Cg"], ["updated_at", "2020-07-31 20:00:10.139857"], ["id", 1]]
+  ↳ app/models/user.rb:29
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:29
+Completed 500 Internal Server Error in 392ms (ActiveRecord: 30.0ms)
+
+
+
+NameError - uninitialized constant UsersController::UserMailer:
+  app/controllers/users_controller.rb:7:in `create'
+
+Started POST "/__better_errors/c075a5c966af258a/variables" for ::1 at 2020-07-31 14:00:10 -0600
+Started POST "/users" for ::1 at 2020-07-31 14:03:43 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"Yy4uhMcJCg67TsL7nUwUykufyovI1y6Q4Yqy1Kl//H0+2F075UINaDqNFmMcyx+Djw+gfgLjQEpXQIKZ+a6qOQ==", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FpFKALrUVlYSg8skYJw_TA"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 474ms (Views: 63.0ms | ActiveRecord: 12.8ms)
+
+
+Started POST "/users" for ::1 at 2020-07-31 14:03:46 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"lNpDc9Bv0RIXxRQfycKOwCDhhu4k1On6dyOO0Oz+BDXJLDDM8iTWdJYGwIdIRYWJ5HHsG+7ghyDB6b6dvC9ScQ==", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "SJ5Z-4HEegq59RjDkg3ekQ"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 485ms (Views: 52.0ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/users" for ::1 at 2020-07-31 14:03:49 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"yAx6B8pHdVQZK6rL2MzdwlWEffZrrn4Wd/xJU7G8sguV+gm46AxyMpjoflNZS9aLkRQXA6GaEMzBNnke4W3kTw==", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "OOcYt0mMxuUClIlUfrGQgg"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 437ms (Views: 79.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users" for ::1 at 2020-07-31 14:05:17 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.2.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/users/new" for ::1 at 2020-07-31 14:05:22 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 55ms (Views: 53.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 14:05:33 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 87ms (Views: 84.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 14:05:34 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 68ms (Views: 66.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 14:14:34 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 71ms (Views: 70.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 14:16:24 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 71ms (Views: 70.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 14:16:30 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 70ms (Views: 69.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 14:16:31 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 65ms (Views: 61.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 14:16:32 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 57ms (Views: 56.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 14:16:57 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 71ms (Views: 69.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 14:17:46 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 83ms (Views: 81.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 14:18:08 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 66ms (Views: 64.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 14:18:33 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 76ms (Views: 75.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 14:19:10 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 89ms (Views: 87.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 14:19:32 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 65ms (Views: 64.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 14:20:17 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 70ms (Views: 67.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 14:20:18 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 62ms (Views: 61.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 14:20:18 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 52ms (Views: 50.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 14:21:11 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 66ms (Views: 65.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 14:21:38 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 65ms (Views: 62.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 14:21:39 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 54ms (Views: 52.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 14:22:10 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 84ms (Views: 83.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 14:22:45 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 64ms (Views: 62.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 14:22:47 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 57ms (Views: 53.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 14:23:20 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 51ms (Views: 50.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 14:23:32 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 65ms (Views: 63.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 14:23:34 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 43ms (Views: 41.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 14:23:43 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 73ms (Views: 71.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 14:24:12 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 74ms (Views: 73.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 14:24:24 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 64ms (Views: 62.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 14:24:32 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 63ms (Views: 61.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 14:24:49 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 73ms (Views: 71.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 14:24:50 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 53ms (Views: 52.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 14:25:41 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 64ms (Views: 63.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 14:25:52 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 64ms (Views: 63.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 14:26:54 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 80ms (Views: 78.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 14:26:55 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 62ms (Views: 61.2ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3812030406321535125)[0m
+  ↳ bin/rails:9
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateBands (20200731202807)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (18.8ms)[0m  [1m[35mCREATE TABLE "bands" ("id" bigserial primary key, "name" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200731202807_create_bands.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200731202807"]]
+  ↳ bin/rails:9
+  [1m[35m (3.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (2.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3812030406321535125)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/bands/new" for ::1 at 2020-07-31 14:34:31 -0600
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cheers/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb:98
+Processing by BandsController#new as HTML
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+
+LoadError - Unable to autoload constant Band, expected /Users/cheers/Desktop/Coding/Rails/Music/music/app/models/band.rb to define it:
+  app/controllers/bands_controller.rb:4:in `new'
+
+Started POST "/__better_errors/131058f3522d1ef4/variables" for ::1 at 2020-07-31 14:34:31 -0600
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/bands/new" for ::1 at 2020-07-31 14:36:49 -0600
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 93ms (Views: 65.4ms | ActiveRecord: 16.0ms)
+
+
+  [1m[36mBand Load (3.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBand Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "bands" WHERE "bands"."name" = $1 LIMIT $2[0m  [["name", "Pixies"], ["LIMIT", 1]]
+  [1m[36mBand Create (2.2ms)[0m  [1m[32mINSERT INTO "bands" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Pixies"], ["created_at", "2020-07-31 20:37:29.445793"], ["updated_at", "2020-07-31 20:37:29.445793"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBand Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "bands" WHERE "bands"."name" = $1 AND "bands"."id" != $2 LIMIT $3[0m  [["name", "Pixies"], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/bands/new" for ::1 at 2020-07-31 14:37:36 -0600
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 46ms (Views: 44.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bands/1" for ::1 at 2020-07-31 14:37:40 -0600
+
+AbstractController::ActionNotFound - The action 'show' could not be found for BandsController:
+
+Started POST "/__better_errors/03f13e842697721f/variables" for ::1 at 2020-07-31 14:37:40 -0600
+Started GET "/bands/new" for ::1 at 2020-07-31 14:51:51 -0600
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 74ms (Views: 43.1ms | ActiveRecord: 15.4ms)
+
+
+Started GET "/bands/new" for ::1 at 2020-07-31 14:52:46 -0600
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/_form.html.erb (1.9ms)
+  Rendered bands/new.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 65ms (Views: 63.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bands/1" for ::1 at 2020-07-31 14:52:51 -0600
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (1.1ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:9
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 2.4ms)
+
+
+
+ActionView::MissingTemplate - Missing template bands/show, application/show with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/cheers/Desktop/Coding/Rails/Music/music/app/views"
+:
+  app/controllers/bands_controller.rb:12:in `show'
+
+Started POST "/__better_errors/0daaf5dd40562eeb/variables" for ::1 at 2020-07-31 14:52:51 -0600
+Started GET "/bands/1/edit" for ::1 at 2020-07-31 14:52:59 -0600
+
+AbstractController::ActionNotFound - The action 'edit' could not be found for BandsController:
+
+Started POST "/__better_errors/09c92a9280e09fb3/variables" for ::1 at 2020-07-31 14:53:00 -0600
+Started GET "/bands/1/" for ::1 at 2020-07-31 14:53:03 -0600
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (2.2ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:9
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 2.2ms)
+
+
+
+ActionView::MissingTemplate - Missing template bands/show, application/show with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/cheers/Desktop/Coding/Rails/Music/music/app/views"
+:
+  app/controllers/bands_controller.rb:12:in `show'
+
+Started POST "/__better_errors/18ddaad8cc384c60/variables" for ::1 at 2020-07-31 14:53:03 -0600
+Started GET "/bands/" for ::1 at 2020-07-31 14:53:15 -0600
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (1.1ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered collection of bands/_band.html.erb [1 times] (3.1ms)
+  Rendered bands/index.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 73ms (Views: 71.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/bands/new" for ::1 at 2020-07-31 14:53:20 -0600
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/_form.html.erb (1.3ms)
+  Rendered bands/new.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 59ms (Views: 57.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bands/1" for ::1 at 2020-07-31 14:54:22 -0600
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (1.1ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:9
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 72ms (Views: 68.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/bands/1/edit" for ::1 at 2020-07-31 14:56:15 -0600
+Processing by BandsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (1.8ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:24
+  Rendering bands/edit.html.erb within layouts/application
+  Rendered bands/_form.html.erb (2.0ms)
+  Rendered bands/edit.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 81ms (Views: 56.8ms | ActiveRecord: 11.2ms)
+
+
+Started GET "/bands/1/edit" for ::1 at 2020-07-31 14:58:11 -0600
+Processing by BandsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (1.2ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:24
+  Rendering bands/edit.html.erb within layouts/application
+  Rendered bands/_form.html.erb (0.8ms)
+  Rendered bands/edit.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 82ms (Views: 40.7ms | ActiveRecord: 15.0ms)
+
+
+Started GET "/bands/1" for ::1 at 2020-07-31 14:58:14 -0600
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:9
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 54ms (Views: 51.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/bands" for ::1 at 2020-07-31 14:58:14 -0600
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (1.2ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered collection of bands/_band.html.erb [1 times] (0.9ms)
+  Rendered bands/index.html.erb within layouts/application (17.9ms)
+Completed 200 OK in 85ms (Views: 83.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/bands" for ::1 at 2020-07-31 15:00:38 -0600
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered collection of bands/_band.html.erb [1 times] (0.7ms)
+  Rendered bands/index.html.erb within layouts/application (30.1ms)
+Completed 200 OK in 75ms (Views: 58.0ms | ActiveRecord: 11.3ms)
+
+
+Started GET "/bands/new" for ::1 at 2020-07-31 15:00:46 -0600
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/_form.html.erb (1.4ms)
+  Rendered bands/new.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 62ms (Views: 60.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/bands" for ::1 at 2020-07-31 15:00:52 -0600
+
+AbstractController::ActionNotFound - The action 'create' could not be found for BandsController:
+
+Started POST "/__better_errors/0a142ac68c65cb67/variables" for ::1 at 2020-07-31 15:00:52 -0600
+Started POST "/bands" for ::1 at 2020-07-31 15:02:12 -0600
+
+SyntaxError - syntax error, unexpected end-of-input, expecting keyword_end:
+  app/controllers/bands_controller.rb:58:in `'
+
+Started POST "/__better_errors/4527701c3b9c2de0/variables" for ::1 at 2020-07-31 15:02:12 -0600
+Started POST "/bands" for ::1 at 2020-07-31 15:02:22 -0600
+Processing by BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"Pavement"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/a4d053b6a1605f9f/variables" for ::1 at 2020-07-31 15:02:22 -0600
+Started POST "/bands" for ::1 at 2020-07-31 15:03:33 -0600
+Processing by BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"Pavement"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 3ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/4695c997f4042cdf/variables" for ::1 at 2020-07-31 15:03:33 -0600
+Started GET "/bands/new" for ::1 at 2020-07-31 15:03:37 -0600
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/_form.html.erb (2.4ms)
+  Rendered bands/new.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 130ms (Views: 75.6ms | ActiveRecord: 8.2ms)
+
+
+Started POST "/bands" for ::1 at 2020-07-31 15:03:41 -0600
+Processing by BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"Pavement"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 5ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/7fbbd235016278f9/variables" for ::1 at 2020-07-31 15:03:41 -0600
+Started GET "/bands/1" for ::1 at 2020-07-31 15:04:15 -0600
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:20
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 30ms (Views: 26.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/bands/1/edit" for ::1 at 2020-07-31 15:04:18 -0600
+Processing by BandsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (1.0ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:35
+  Rendering bands/edit.html.erb within layouts/application
+  Rendered bands/_form.html.erb (0.6ms)
+  Rendered bands/edit.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 40ms (Views: 36.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/bands/1" for ::1 at 2020-07-31 15:04:23 -0600
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (2.2ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:20
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 40ms (Views: 35.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/bands/new" for ::1 at 2020-07-31 15:04:24 -0600
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/_form.html.erb (0.7ms)
+  Rendered bands/new.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 41ms (Views: 40.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/bands" for ::1 at 2020-07-31 15:04:28 -0600
+Processing by BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"Pavement"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/7c785056622c7876/variables" for ::1 at 2020-07-31 15:04:28 -0600
+Started POST "/bands" for ::1 at 2020-07-31 15:06:28 -0600
+Processing by BandsController#create as HTML
+  Parameters: {"band"=>{"name"=>"Pavement"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/06d7ce169b5bd780/variables" for ::1 at 2020-07-31 15:06:28 -0600
+Started GET "/bandsnew" for ::1 at 2020-07-31 15:06:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/bandsnew"):
+  
+actionpack (5.2.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/bands/new" for ::1 at 2020-07-31 15:06:37 -0600
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/_form.html.erb (13.2ms)
+  Rendered bands/new.html.erb within layouts/application (21.2ms)
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 0.0ms)
+
+
+
+ActionView::Template::Error - wrong number of arguments (given 0, expected 1):
+  app/views/bands/_form.html.erb:8:in `view template'
+  app/views/bands/new.html.erb:5:in `_app_views_bands_new_html_erb___2910843737649263675_70130036873200'
+  app/controllers/bands_controller.rb:31:in `new'
+
+Started POST "/__better_errors/5e7596b214a39b4b/variables" for ::1 at 2020-07-31 15:06:38 -0600
+Started GET "/bands/new" for ::1 at 2020-07-31 15:07:05 -0600
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/_form.html.erb (11.2ms)
+  Rendered bands/new.html.erb within layouts/application (20.0ms)
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 0.0ms)
+
+
+
+ActionView::Template::Error - wrong number of arguments (given 0, expected 1):
+  app/views/bands/_form.html.erb:14:in `view template'
+  app/views/bands/new.html.erb:5:in `_app_views_bands_new_html_erb___2910843737649263675_70130036172760'
+  app/controllers/bands_controller.rb:31:in `new'
+
+Started POST "/__better_errors/6bf768b4c30bc93e/variables" for ::1 at 2020-07-31 15:07:05 -0600
+Started GET "/bands/new" for ::1 at 2020-07-31 15:08:05 -0600
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/_form.html.erb (2.1ms)
+  Rendered bands/new.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 55ms (Views: 54.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/bands" for ::1 at 2020-07-31 15:08:08 -0600
+Processing by BandsController#create as HTML
+  Parameters: {"authenticity_token"=>"3ohkqzfT8oOy8iYUYMhd818Rzya2fAiw6cowJaWFtMmDfhcUFZj15TMx8ozhT1a6m4Gl03xIZmpfAABo9VTijQ==", "band"=>{"name"=>"Pavement"}}
+Completed 500 Internal Server Error in 305ms (ActiveRecord: 0.0ms)
+
+
+
+NameError - undefined local variable or method `band_params' for #<BandsController:0x00007f90d0a4ac50>
+Did you mean?  band_path:
+  app/controllers/bands_controller.rb:9:in `create'
+
+Started POST "/__better_errors/63f9ba8a38dea588/variables" for ::1 at 2020-07-31 15:08:09 -0600
+Started GET "/bands" for ::1 at 2020-07-31 15:09:40 -0600
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered collection of bands/_band.html.erb [1 times] (1.4ms)
+  Rendered bands/index.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 75ms (Views: 73.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/bands/1" for ::1 at 2020-07-31 15:09:44 -0600
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:20
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 58ms (Views: 55.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/bands/1/edit" for ::1 at 2020-07-31 15:09:49 -0600
+Processing by BandsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (2.6ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:35
+  Rendering bands/edit.html.erb within layouts/application
+  Rendered bands/_form.html.erb (2.2ms)
+  Rendered bands/edit.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 75ms (Views: 69.3ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/bands/1" for ::1 at 2020-07-31 15:09:53 -0600
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (2.2ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:20
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 64ms (Views: 58.9ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/bands/new" for ::1 at 2020-07-31 15:09:54 -0600
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/_form.html.erb (2.8ms)
+  Rendered bands/new.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 75ms (Views: 73.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/bands" for ::1 at 2020-07-31 15:09:57 -0600
+Processing by BandsController#create as HTML
+  Parameters: {"authenticity_token"=>"mVEH2RPOE+P4EeZHUmCd/H58aRaT1h6Cvp8kIRJGq4vEp3RmMYUUhXnSMt/T55a1uuwD41nicFgIVRRsQpf9zw==", "band"=>{"name"=>"Pavement"}}
+Completed 500 Internal Server Error in 345ms (ActiveRecord: 0.0ms)
+
+
+
+NameError - undefined local variable or method `band_params' for #<BandsController:0x00007f90d5b603d8>
+Did you mean?  band_path:
+  app/controllers/bands_controller.rb:9:in `create'
+
+Started POST "/__better_errors/d7ee44aa1ef30159/variables" for ::1 at 2020-07-31 15:09:58 -0600
+Started POST "/__better_errors/d7ee44aa1ef30159/eval" for ::1 at 2020-07-31 15:10:59 -0600
+Started POST "/__better_errors/d7ee44aa1ef30159/eval" for ::1 at 2020-07-31 15:11:07 -0600
+Started POST "/bands" for ::1 at 2020-07-31 15:11:30 -0600
+Processing by BandsController#create as HTML
+  Parameters: {"authenticity_token"=>"mVEH2RPOE+P4EeZHUmCd/H58aRaT1h6Cvp8kIRJGq4vEp3RmMYUUhXnSMt/T55a1uuwD41nicFgIVRRsQpf9zw==", "band"=>{"name"=>"Pavement"}}
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:11
+  [1m[36mBand Exists (4.5ms)[0m  [1m[34mSELECT  1 AS one FROM "bands" WHERE "bands"."name" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:11
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/bands_controller.rb:11
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/_form.html.erb (4.0ms)
+  Rendered bands/new.html.erb within layouts/application (26.5ms)
+Completed 200 OK in 143ms (Views: 94.9ms | ActiveRecord: 22.2ms)
+
+
+Started POST "/bands" for ::1 at 2020-07-31 15:11:34 -0600
+Processing by BandsController#create as HTML
+  Parameters: {"authenticity_token"=>"905PplbHyD+thM2CREuWchZe6pMpjIgtOJlFax03x4GquDwZdIzPWSxHGRrFzJ070s6AZuO45veOU3UmTeaRxQ==", "band"=>{"name"=>"Pavement"}}
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:11
+  [1m[36mBand Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "bands" WHERE "bands"."name" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:11
+  [1m[35m (2.8ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/bands_controller.rb:11
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/_form.html.erb (1.2ms)
+  Rendered bands/new.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 84ms (Views: 69.8ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/bands" for ::1 at 2020-07-31 15:11:48 -0600
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered collection of bands/_band.html.erb [1 times] (1.1ms)
+  Rendered bands/index.html.erb within layouts/application (27.4ms)
+Completed 200 OK in 85ms (Views: 69.4ms | ActiveRecord: 10.4ms)
+
+
+Started GET "/bands/new" for ::1 at 2020-07-31 15:11:52 -0600
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/_form.html.erb (0.9ms)
+  Rendered bands/new.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 66ms (Views: 64.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/bands" for ::1 at 2020-07-31 15:11:57 -0600
+Processing by BandsController#create as HTML
+  Parameters: {"authenticity_token"=>"lk9rt5NlYxTkjln4dQ95e1WVCLAVUVD6k2lRGxUwn6bLuRgIsS5kcmVNjWD0iHIykQViRd9lPiAlo2FWReHJ4g==", "band"=>{"name"=>"The Who"}}
+Completed 500 Internal Server Error in 294ms (ActiveRecord: 0.0ms)
+
+
+
+NameError - undefined local variable or method `band_params' for #<BandsController:0x00007f90d7e37b90>
+Did you mean?  band_path:
+  app/controllers/bands_controller.rb:9:in `create'
+
+Started POST "/__better_errors/659e2b027241fa46/variables" for ::1 at 2020-07-31 15:11:57 -0600
+Started POST "/bands" for ::1 at 2020-07-31 15:12:23 -0600
+Processing by BandsController#create as HTML
+  Parameters: {"authenticity_token"=>"lk9rt5NlYxTkjln4dQ95e1WVCLAVUVD6k2lRGxUwn6bLuRgIsS5kcmVNjWD0iHIykQViRd9lPiAlo2FWReHJ4g==", "band"=>{"name"=>"The Who"}}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `bands' for nil:NilClass:
+  app/controllers/bands_controller.rb:9:in `create'
+
+Started POST "/__better_errors/094343dffc76e9ea/variables" for ::1 at 2020-07-31 15:12:23 -0600
+Started POST "/__better_errors/094343dffc76e9ea/eval" for ::1 at 2020-07-31 15:12:28 -0600
+Started POST "/__better_errors/094343dffc76e9ea/eval" for ::1 at 2020-07-31 15:12:33 -0600
+Started POST "/__better_errors/094343dffc76e9ea/eval" for ::1 at 2020-07-31 15:12:40 -0600
+Started POST "/__better_errors/094343dffc76e9ea/eval" for ::1 at 2020-07-31 15:12:43 -0600
+Started POST "/bands" for ::1 at 2020-07-31 15:12:49 -0600
+Processing by BandsController#create as HTML
+  Parameters: {"authenticity_token"=>"lk9rt5NlYxTkjln4dQ95e1WVCLAVUVD6k2lRGxUwn6bLuRgIsS5kcmVNjWD0iHIykQViRd9lPiAlo2FWReHJ4g==", "band"=>{"name"=>"The Who"}}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `bands' for nil:NilClass:
+  app/controllers/bands_controller.rb:9:in `create'
+
+Started POST "/__better_errors/012add6de44122dc/variables" for ::1 at 2020-07-31 15:12:49 -0600
+Started POST "/__better_errors/012add6de44122dc/eval" for ::1 at 2020-07-31 15:12:53 -0600
+Started GET "/bands/new" for ::1 at 2020-07-31 15:13:30 -0600
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/_form.html.erb (1.3ms)
+  Rendered bands/new.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 87ms (Views: 55.3ms | ActiveRecord: 11.4ms)
+
+
+Started POST "/bands" for ::1 at 2020-07-31 15:13:34 -0600
+Processing by BandsController#create as HTML
+  Parameters: {"authenticity_token"=>"ps82r8uBkYu6/ljYgbwuwR9mBBi5/iboA0JmUeSKsjr7OUUQ6cqW7Ts9jEAAOyWI2/Zu7XPKSDK1iFYctFvkfg==", "band"=>{"name"=>"the who"}}
+Completed 500 Internal Server Error in 264ms (ActiveRecord: 0.0ms)
+
+
+
+NameError - undefined local variable or method `band_params' for #<BandsController:0x00007f90d792d640>
+Did you mean?  band_path:
+  app/controllers/bands_controller.rb:9:in `create'
+
+Started POST "/__better_errors/c2e62c51f5e95828/variables" for ::1 at 2020-07-31 15:13:35 -0600
+Started GET "/bands" for ::1 at 2020-07-31 16:32:25 -0600
+
+PG::ConnectionBad - could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+:
+
+Started POST "/__better_errors/ffe62f9c84d9a2b2/variables" for ::1 at 2020-07-31 16:32:25 -0600
+Started GET "/bands" for ::1 at 2020-07-31 16:32:43 -0600
+
+PG::ConnectionBad - could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+:
+
+Started POST "/__better_errors/2ad7ca47998f0ec1/variables" for ::1 at 2020-07-31 16:32:43 -0600
+Started GET "/bands/new" for ::1 at 2020-07-31 16:32:45 -0600
+
+PG::ConnectionBad - could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+:
+
+Started POST "/__better_errors/0d0dbbd73b9fad7c/variables" for ::1 at 2020-07-31 16:32:46 -0600
+Started GET "/bands/1" for ::1 at 2020-07-31 16:32:50 -0600
+
+PG::ConnectionBad - could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+:
+
+Started POST "/__better_errors/8b38d83ce1f41762/variables" for ::1 at 2020-07-31 16:32:50 -0600
+Started GET "/bands/1" for ::1 at 2020-07-31 16:33:08 -0600
+
+PG::ConnectionBad - could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+:
+
+Started POST "/__better_errors/9e36c70ffd46694c/variables" for ::1 at 2020-07-31 16:33:08 -0600
+Started GET "/session/new" for ::1 at 2020-07-31 16:33:17 -0600
+
+PG::ConnectionBad - could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+:
+
+Started POST "/__better_errors/7899da45e45bae99/variables" for ::1 at 2020-07-31 16:33:17 -0600
+Started GET "/users" for ::1 at 2020-07-31 16:33:53 -0600
+
+PG::ConnectionBad - could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+:
+
+Started POST "/__better_errors/2644ad229f7cf6f8/variables" for ::1 at 2020-07-31 16:33:53 -0600
+Started GET "/users/new" for ::1 at 2020-07-31 16:33:57 -0600
+
+PG::ConnectionBad - could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+:
+
+Started POST "/__better_errors/7e92c6ee33ac3292/variables" for ::1 at 2020-07-31 16:33:58 -0600
+Started GET "/bands/1/edit" for ::1 at 2020-07-31 16:34:04 -0600
+
+PG::ConnectionBad - could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+:
+
+Started POST "/__better_errors/b0c711d8ce511962/variables" for ::1 at 2020-07-31 16:34:04 -0600
+Started GET "/bands/1/edit" for ::1 at 2020-07-31 16:34:49 -0600
+
+PG::ConnectionBad - could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+:
+
+Started POST "/__better_errors/1bc2f04474b80b73/variables" for ::1 at 2020-07-31 16:34:49 -0600
+Started GET "/bands/1/edit" for ::1 at 2020-07-31 16:34:51 -0600
+
+PG::ConnectionBad - could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+:
+
+Started POST "/__better_errors/a0cd7f645091b934/variables" for ::1 at 2020-07-31 16:34:51 -0600
+Started GET "/bands/1/edit" for ::1 at 2020-07-31 16:36:45 -0600
+
+ActiveRecord::NoDatabaseError - FATAL:  database "music_development" does not exist
+:
+
+Started POST "/__better_errors/a9bebf5aa14d5089/variables" for ::1 at 2020-07-31 16:36:45 -0600
+Started GET "/bands/1/edit" for ::1 at 2020-07-31 16:36:46 -0600
+
+ActiveRecord::NoDatabaseError - FATAL:  database "music_development" does not exist
+:
+
+Started POST "/__better_errors/c65567811c80c79a/variables" for ::1 at 2020-07-31 16:36:46 -0600
+  [1m[35m (274.0ms)[0m  [1m[35mCREATE DATABASE "music_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (92.8ms)[0m  [1m[35mCREATE DATABASE "music_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+Started GET "/bands/1/edit" for ::1 at 2020-07-31 16:37:09 -0600
+
+ActiveRecord::PendingMigrationError - Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+:
+
+Started POST "/__better_errors/f3cce763e6814ec5/variables" for ::1 at 2020-07-31 16:37:10 -0600
+Started GET "/bands/1/edit" for ::1 at 2020-07-31 16:37:11 -0600
+
+ActiveRecord::PendingMigrationError - Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+:
+
+Started POST "/__better_errors/7ecec6c906b5aa00/variables" for ::1 at 2020-07-31 16:37:11 -0600
+  [1m[35m (7.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (25.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3812030406321535125)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20200731190117)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "email" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200731190117_create_users.rb:3
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_session_token" ON "users"  ("session_token")[0m
+  ↳ db/migrate/20200731190117_create_users.rb:10
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/migrate/20200731190117_create_users.rb:11
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200731190117"]]
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateBands (20200731202807)
+  [1m[35m (6.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (42.2ms)[0m  [1m[35mCREATE TABLE "bands" ("id" bigserial primary key, "name" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200731202807_create_bands.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200731202807"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-07-31 22:37:35.790075"], ["updated_at", "2020-07-31 22:37:35.790075"]]
+  ↳ bin/rails:9
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3812030406321535125)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/bands/1/edit" for ::1 at 2020-07-31 16:37:57 -0600
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cheers/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb:98
+Processing by BandsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (7.6ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:35
+  Rendering bands/edit.html.erb within layouts/application
+  Rendered bands/_form.html.erb (24.8ms)
+  Rendered bands/edit.html.erb within layouts/application (38.3ms)
+Completed 500 Internal Server Error in 111ms (ActiveRecord: 17.4ms)
+
+
+
+ActionView::Template::Error - undefined method `persisted?' for nil:NilClass:
+  app/views/bands/_form.html.erb:1:in `view template'
+  app/views/bands/edit.html.erb:6:in `_app_views_bands_edit_html_erb__4539185534400138662_70143414828000'
+  app/controllers/bands_controller.rb:36:in `edit'
+
+Started POST "/__better_errors/d2f80e4e946be5b9/variables" for ::1 at 2020-07-31 16:37:57 -0600
+Started GET "/bands/1" for ::1 at 2020-07-31 16:38:04 -0600
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:20
+Redirected to http://localhost:3000/bands
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/bands" for ::1 at 2020-07-31 16:38:04 -0600
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (30.9ms)
+Completed 200 OK in 363ms (Views: 361.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/bands/" for ::1 at 2020-07-31 16:38:05 -0600
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (41.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (43.6ms)
+Completed 200 OK in 84ms (Views: 41.1ms | ActiveRecord: 41.6ms)
+
+
+Started GET "/bands/new" for ::1 at 2020-07-31 16:38:09 -0600
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/_form.html.erb (0.8ms)
+  Rendered bands/new.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 107ms (Views: 46.5ms | ActiveRecord: 53.9ms)
+
+
+Started POST "/bands" for ::1 at 2020-07-31 16:38:12 -0600
+Processing by BandsController#create as HTML
+  Parameters: {"authenticity_token"=>"SnrnNXB2uRGPfGf+dq1CSUD6G4LCEvfwlxRoechjfJEXjJSKUj2+dw6/s2b3KkkAhGpxdwgmmSoh3lg0mLIq1Q==", "band"=>{"name"=>"Pavement"}}
+Completed 500 Internal Server Error in 297ms (ActiveRecord: 0.0ms)
+
+
+
+NameError - undefined local variable or method `band_params' for #<BandsController:0x00007f97153a7d08>
+Did you mean?  band_path:
+  app/controllers/bands_controller.rb:9:in `create'
+
+Started POST "/__better_errors/086374a70429cb0c/variables" for ::1 at 2020-07-31 16:38:13 -0600
+Started POST "/bands" for ::1 at 2020-07-31 16:39:54 -0600
+
+SyntaxError - syntax error, unexpected end-of-input, expecting keyword_end:
+  app/controllers/bands_controller.rb:58:in `'
+
+Started POST "/__better_errors/fac63c4e89cbf013/variables" for ::1 at 2020-07-31 16:39:54 -0600
+Started POST "/bands" for ::1 at 2020-07-31 16:39:58 -0600
+
+SyntaxError - syntax error, unexpected end-of-input, expecting keyword_end:
+  app/controllers/bands_controller.rb:58:in `'
+
+Started POST "/__better_errors/52e55edc9025436f/variables" for ::1 at 2020-07-31 16:39:58 -0600
+Started POST "/bands" for ::1 at 2020-07-31 16:40:24 -0600
+Processing by BandsController#create as HTML
+  Parameters: {"authenticity_token"=>"2bvA8P7WqIcezhgaI+FYc8I3tDxebFtuA0TJpj4iD6iETbNP3J2v4Z8NzIKiZlM6BqfeyZRYNbS1jvnrbvNZ7A==", "band"=>{"name"=>"Pavement"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:11
+  [1m[36mBand Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "bands" WHERE "bands"."name" = $1 LIMIT $2[0m  [["name", "Pavement"], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:11
+  [1m[36mBand Create (1.0ms)[0m  [1m[32mINSERT INTO "bands" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Pavement"], ["created_at", "2020-07-31 22:40:24.626257"], ["updated_at", "2020-07-31 22:40:24.626257"]]
+  ↳ app/controllers/bands_controller.rb:11
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bands_controller.rb:11
+Redirected to http://localhost:3000/bands/1
+Completed 302 Found in 24ms (ActiveRecord: 7.7ms)
+
+
+Started GET "/bands" for ::1 at 2020-07-31 16:40:24 -0600
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 41ms (Views: 39.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/bands/new" for ::1 at 2020-07-31 16:40:48 -0600
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/_form.html.erb (1.1ms)
+  Rendered bands/new.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 38ms (Views: 36.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/bands" for ::1 at 2020-07-31 16:40:51 -0600
+Processing by BandsController#create as HTML
+  Parameters: {"authenticity_token"=>"AAwxa1K7V/i7KnswYPJrN+OQ4QA0stMxt953P5bW4Rtd+kLUcPBQnjrpr6jhdWB+JwCL9f6GvesBFEdyxge3Xw==", "band"=>{"name"=>"Pixies"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:11
+  [1m[36mBand Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "bands" WHERE "bands"."name" = $1 LIMIT $2[0m  [["name", "Pixies"], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:11
+  [1m[36mBand Create (0.4ms)[0m  [1m[32mINSERT INTO "bands" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Pixies"], ["created_at", "2020-07-31 22:40:51.196896"], ["updated_at", "2020-07-31 22:40:51.196896"]]
+  ↳ app/controllers/bands_controller.rb:11
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bands_controller.rb:11
+Redirected to http://localhost:3000/bands/2
+Completed 302 Found in 9ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/bands/2" for ::1 at 2020-07-31 16:40:51 -0600
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:20
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 27ms (Views: 23.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/bands/" for ::1 at 2020-07-31 16:40:55 -0600
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 38ms (Views: 37.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/bands/1" for ::1 at 2020-07-31 16:40:58 -0600
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:20
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 32ms (Views: 29.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/bands/" for ::1 at 2020-07-31 16:41:00 -0600
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 32ms (Views: 30.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/bands/" for ::1 at 2020-07-31 16:43:02 -0600
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (32.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:3
+  Rendered collection of bands/_band.html.erb [2 times] (0.8ms)
+  Rendered bands/index.html.erb within layouts/application (42.0ms)
+Completed 200 OK in 92ms (Views: 58.6ms | ActiveRecord: 32.6ms)
+
+
+Started GET "/bands/new" for ::1 at 2020-07-31 16:43:13 -0600
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/_form.html.erb (1.5ms)
+  Rendered bands/new.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 70ms (Views: 68.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bands/new" for ::1 at 2020-07-31 16:44:23 -0600
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/_form.html.erb (1.6ms)
+  Rendered bands/new.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 75ms (Views: 74.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bands/new" for ::1 at 2020-07-31 16:44:39 -0600
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/_form.html.erb (1.3ms)
+  Rendered bands/new.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 62ms (Views: 60.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bands/new" for ::1 at 2020-07-31 16:45:12 -0600
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/_form.html.erb (0.7ms)
+  Rendered bands/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 39ms (Views: 37.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bands/new" for ::1 at 2020-07-31 16:45:13 -0600
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/_form.html.erb (0.8ms)
+  Rendered bands/new.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 39ms (Views: 37.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bands/new" for ::1 at 2020-07-31 16:45:42 -0600
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/_form.html.erb (2.0ms)
+  Rendered bands/new.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 52ms (Views: 51.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bands/new" for ::1 at 2020-07-31 16:45:43 -0600
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/_form.html.erb (1.2ms)
+  Rendered bands/new.html.erb within layouts/application (15.9ms)
+Completed 200 OK in 60ms (Views: 58.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bands/new" for ::1 at 2020-07-31 16:45:59 -0600
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/_form.html.erb (1.2ms)
+  Rendered bands/new.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 55ms (Views: 53.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bands/new" for ::1 at 2020-07-31 16:46:24 -0600
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/_form.html.erb (0.8ms)
+  Rendered bands/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 30ms (Views: 29.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bands/new" for ::1 at 2020-07-31 16:46:53 -0600
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/_form.html.erb (1.0ms)
+  Rendered bands/new.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 41ms (Views: 40.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bands/new" for ::1 at 2020-07-31 16:46:55 -0600
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/_form.html.erb (0.7ms)
+  Rendered bands/new.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 31ms (Views: 30.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bands/new" for ::1 at 2020-07-31 16:47:04 -0600
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/_form.html.erb (0.9ms)
+  Rendered bands/new.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 40ms (Views: 39.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bands/new" for ::1 at 2020-07-31 16:47:19 -0600
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/_form.html.erb (1.0ms)
+  Rendered bands/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 42ms (Views: 40.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bands/new" for ::1 at 2020-07-31 16:47:30 -0600
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/_form.html.erb (1.1ms)
+  Rendered bands/new.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 41ms (Views: 39.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bands/new" for ::1 at 2020-07-31 16:47:31 -0600
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/_form.html.erb (0.9ms)
+  Rendered bands/new.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 39ms (Views: 37.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 16:47:32 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 44ms (Views: 26.7ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 16:48:14 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 39ms (Views: 37.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 16:48:28 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 51ms (Views: 49.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 16:49:31 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 31ms (Views: 30.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 16:49:34 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 27ms (Views: 25.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 16:50:16 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 72ms (Views: 71.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 16:50:33 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 63ms (Views: 59.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 16:50:34 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 48ms (Views: 47.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 16:50:35 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 47ms (Views: 46.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 16:50:41 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 67ms (Views: 65.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 16:51:31 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 46ms (Views: 45.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 16:51:39 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 75ms (Views: 73.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 16:52:59 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 59ms (Views: 57.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 16:53:36 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 62ms (Views: 61.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 16:56:01 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 65ms (Views: 64.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 16:56:06 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 63ms (Views: 61.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 16:56:58 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 54ms (Views: 52.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 16:56:59 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 50ms (Views: 48.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 16:57:56 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 66ms (Views: 65.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 16:57:58 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 60ms (Views: 58.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 17:00:36 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 68ms (Views: 66.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 17:01:23 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 78ms (Views: 77.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 17:02:05 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 65ms (Views: 64.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 17:02:06 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 57ms (Views: 55.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 17:02:29 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 65ms (Views: 64.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 17:02:37 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 69ms (Views: 68.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 17:02:42 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 64ms (Views: 63.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 17:03:14 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 68ms (Views: 66.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 17:03:23 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 140ms (Views: 138.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bands" for ::1 at 2020-07-31 17:03:39 -0600
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (7.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:3
+  Rendered collection of bands/_band.html.erb [2 times] (1.0ms)
+  Rendered bands/index.html.erb within layouts/application (18.8ms)
+Completed 200 OK in 82ms (Views: 72.3ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/bands" for ::1 at 2020-07-31 17:04:19 -0600
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (10.1ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:3
+  Rendered collection of bands/_band.html.erb [2 times] (0.8ms)
+  Rendered bands/index.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 59ms (Views: 48.1ms | ActiveRecord: 10.1ms)
+
+
+Started GET "/bands/new" for ::1 at 2020-07-31 17:04:27 -0600
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/_form.html.erb (1.2ms)
+  Rendered bands/new.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 62ms (Views: 60.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/bands" for ::1 at 2020-07-31 17:04:41 -0600
+Processing by BandsController#create as HTML
+  Parameters: {"authenticity_token"=>"+VFoRqHX58CR7w4/B9l0HoiwbDIjdWeYrVXccj2Cj2ykpxv5g5zgphAs2qeGXn9XTCAGx+lBCUIbn+w/bVPZKA==", "band"=>{"name"=>"Prince"}}
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:11
+  [1m[36mBand Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "bands" WHERE "bands"."name" = $1 LIMIT $2[0m  [["name", "Prince"], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:11
+  [1m[36mBand Create (0.8ms)[0m  [1m[32mINSERT INTO "bands" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Prince"], ["created_at", "2020-07-31 23:04:41.038644"], ["updated_at", "2020-07-31 23:04:41.038644"]]
+  ↳ app/controllers/bands_controller.rb:11
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bands_controller.rb:11
+Redirected to http://localhost:3000/bands/3
+Completed 302 Found in 13ms (ActiveRecord: 5.1ms)
+
+
+Started GET "/bands/3" for ::1 at 2020-07-31 17:04:41 -0600
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBand Load (10.6ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:20
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 73ms (Views: 47.2ms | ActiveRecord: 10.6ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 17:04:44 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 36ms (Views: 35.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2020-07-31 17:04:49 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"<input", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 3ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/b915f4b31c3dbb50/variables" for ::1 at 2020-07-31 17:04:49 -0600
+Started POST "/users" for ::1 at 2020-07-31 17:08:43 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"Fq6rNnacLl7fWOCYMQKSeBh33OSgvopt+7jWZSe3FRpLWNiJVNcpOF6bNACwhZkx3Oe2EWqK5LdNcuYod2ZDXg==", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+  [1m[35m (214.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (23.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "f6rwMI7dPGbolpDu4PsDng"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Create (10.6ms)[0m  [1m[32mINSERT INTO "users" ("password_digest", "session_token", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["password_digest", "$2a$12$/0jXqIFpjHKivH7Ckv9tl.Np7hGIdzqzF.rmZCsAtVVYJVchlMsE2"], ["session_token", "f6rwMI7dPGbolpDu4PsDng"], ["email", "test"], ["created_at", "2020-07-31 23:08:44.836408"], ["updated_at", "2020-07-31 23:08:44.836408"]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (3.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "test"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "70tAWObq6H7aAnxmhxeFqA"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Update (4.7ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "70tAWObq6H7aAnxmhxeFqA"], ["updated_at", "2020-07-31 23:08:44.875799"], ["id", 1]]
+  ↳ app/models/user.rb:29
+  [1m[35m (11.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:29
+  Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (0.8ms)
+  Rendering user_mailer/welcome_email.text.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.text.erb within layouts/mailer (3.7ms)
+UserMailer#welcome_email: processed outbound mail in 650.7ms
+Sent mail to test (62.5ms)
+Date: Fri, 31 Jul 2020 17:08:46 -0600
+From: musicappadmin@example.com
+To: test
+Message-ID: <5f24a47e5266c_d943fcb8b0c89d837e1@Ciros-MacBook-Air.local.mail>
+Subject: Welcome to Music App!
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5f24a47e4f307_d943fcb8b0c89d83699";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5f24a47e4f307_d943fcb8b0c89d83699
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to Music App!
+
+Hi, test, we hope you enjoy the site!
+
+----==_mimepart_5f24a47e4f307_d943fcb8b0c89d83699
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Welcome to Music App!</h1>
+
+    <p>Hi, test, we hope you enjoy the site!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+----==_mimepart_5f24a47e4f307_d943fcb8b0c89d83699--
+
+Completed 500 Internal Server Error in 3606ms (ActiveRecord: 280.6ms)
+
+
+
+NameError - undefined local variable or method `root_url' for #<UsersController:0x00007f9711c63950>:
+  app/controllers/users_controller.rb:9:in `create'
+
+Started POST "/__better_errors/c057aab914de9f85/variables" for ::1 at 2020-07-31 17:08:47 -0600
+Started GET "/users/new" for ::1 at 2020-07-31 17:09:06 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 55ms (Views: 53.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2020-07-31 17:09:07 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.2.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/session/new" for ::1 at 2020-07-31 17:09:12 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 53ms (Views: 51.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2020-07-31 17:09:15 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"<input", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 4ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/dfe436ece737ffae/variables" for ::1 at 2020-07-31 17:09:15 -0600
+Started POST "/users" for ::1 at 2020-07-31 17:10:32 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"Fq6rNnacLl7fWOCYMQKSeBh33OSgvopt+7jWZSe3FRpLWNiJVNcpOF6bNACwhZkx3Oe2EWqK5LdNcuYod2ZDXg==", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UWlTRPD4-ad-skFWOa5lIw"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 390ms (Views: 33.2ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 17:10:37 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 26ms (Views: 25.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2020-07-31 17:10:41 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"<input", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/5dc36c257bb44088/variables" for ::1 at 2020-07-31 17:10:41 -0600
+Started POST "/users" for ::1 at 2020-07-31 17:11:08 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"<input", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/72f2f80c049d2d9a/variables" for ::1 at 2020-07-31 17:11:08 -0600
+Started POST "/users" for ::1 at 2020-07-31 17:11:13 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"YHUNsyQlPHmwC8kthxtmKyCs6LkdzDjQVpXxRsOyZIE9g34MBm47HzHIHbUGnG1i5DyCTNf4VgrgX8ELk2MyxQ==", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "XuQpp3wuDTh26asOnSOIfg"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 366ms (Views: 22.5ms | ActiveRecord: 7.1ms)
+
+
+Started POST "/users" for ::1 at 2020-07-31 17:11:15 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"8Qg3H3kSbW/2CqK2zGSRsRoYxM+ArXTGpKOCoVzJegis/kSgW1lqCXfJdi5N45r43oiuOkqZGhwSabLsDBgsTA==", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8LrsOyjCedoiShkT-LFoZg"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 356ms (Views: 21.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 17:11:20 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 32ms (Views: 31.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2020-07-31 17:11:24 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"<input", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/4c4dc1f3fafb50ec/variables" for ::1 at 2020-07-31 17:11:24 -0600
+Started POST "/users" for ::1 at 2020-07-31 17:12:03 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"<input", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/7937026d48e0cca2/variables" for ::1 at 2020-07-31 17:12:03 -0600
+Started POST "/users" for ::1 at 2020-07-31 17:12:08 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"IH0cKXRPmTMZZfhvDE02e3E3Vkqlbm+liTHDWSbTk519i2+WVgSeVZimLPeNyj0ytac8v29aAX8/+/MUdgLF2Q==", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7Aj0StdpwzLcJPWhOeR0vA"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 358ms (Views: 20.8ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/users" for ::1 at 2020-07-31 17:15:49 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.2.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/users/new" for ::1 at 2020-07-31 17:15:54 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 97ms (Views: 54.2ms | ActiveRecord: 24.7ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 17:15:57 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 59ms (Views: 58.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2020-07-31 17:16:00 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"<input", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 4ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/fc5976ec62355f9a/variables" for ::1 at 2020-07-31 17:16:00 -0600
+Started GET "/session/new" for ::1 at 2020-07-31 17:30:00 -0600
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/cheers/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 572ms (Views: 566.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2020-07-31 17:30:07 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"i2Ud44jtXGvyiHCMiIbJ/c6LWQYpNoeHnjwfNZOItlXWk25cqqZbDXNLpBQJAcK0Chsz8+MC6V0o9i94w1ngEQ==", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "OAJlqJDRuJBRe6p5up9X4Q"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 392ms (Views: 33.4ms | ActiveRecord: 13.6ms)
+
+
+Started POST "/users" for ::1 at 2020-07-31 17:33:08 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"X7UEkJvs0+Rkdb1Absal+Fu80VlOpGCO0B3a26Z14OcCQ3cvuafUguW2adjvQa6xnyy7rISQDlRm1+qW9qS2ow==", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "C9HA93Z2DlpEy1NM_-3XEg"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 378ms (Views: 36.9ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/users" for ::1 at 2020-07-31 17:33:10 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"ZzLIV7gYnzWr7p5oauGrJWaKl9kAGg+OHfH5gAIQ3o86xLvomlOYUyotSvDrZqBsohr9LMouYVSrO8nNUsGIyw==", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "GBknEZMRGMuZmcL6Gsn3oQ"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 371ms (Views: 33.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 17:33:13 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 45ms (Views: 44.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2020-07-31 17:33:18 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"<input", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 3ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/ea22c9a0f1b4bae1/variables" for ::1 at 2020-07-31 17:33:18 -0600
+Started POST "/__better_errors/ea22c9a0f1b4bae1/eval" for ::1 at 2020-07-31 17:33:27 -0600
+Started POST "/__better_errors/ea22c9a0f1b4bae1/variables" for ::1 at 2020-07-31 17:33:34 -0600
+Started POST "/__better_errors/ea22c9a0f1b4bae1/variables" for ::1 at 2020-07-31 17:33:41 -0600
+Started POST "/__better_errors/ea22c9a0f1b4bae1/variables" for ::1 at 2020-07-31 17:33:43 -0600
+Started POST "/__better_errors/ea22c9a0f1b4bae1/variables" for ::1 at 2020-07-31 17:33:44 -0600
+Started POST "/__better_errors/ea22c9a0f1b4bae1/variables" for ::1 at 2020-07-31 17:33:45 -0600
+Started POST "/__better_errors/ea22c9a0f1b4bae1/variables" for ::1 at 2020-07-31 17:33:46 -0600
+Started GET "/session/new" for ::1 at 2020-07-31 17:33:51 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 62ms (Views: 61.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 17:35:42 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 33ms (Views: 32.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2020-07-31 17:35:46 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"fESWtTdi7KXQKh1HlrSXrZIYOdk9TrtgwHEhee+8HM8hsuUKFSnrw1Hpyd8XM5zkVohTLPd61bp2uxE0v21Kiw==", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "pLErsDEQhvRKYkYwEa4Eqw"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 421ms (Views: 43.2ms | ActiveRecord: 23.9ms)
+
+
+Started POST "/users" for ::1 at 2020-07-31 17:35:48 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"n/lM+SCB39+WHWmRGGOJJ34tmu9yWJtiQEy21OQYzHfCDz9GAsrYuRfevQmZ5IJuur3wGrhs9bj2hoaZtMmaMw==", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "s4Eso8pc7mNDlz8FFJbPng"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 378ms (Views: 34.7ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users" for ::1 at 2020-07-31 17:35:50 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"PsZ7U9/UbExBrolAxigtzcESF3HpcaMsJfjYMU32d6NjMAjs/Z9rKsBtXdhHryaEBYJ9hCNFzfaTMuh8HSch5w==", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "DojpxfWgVP_cS8D_RmcUkg"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 387ms (Views: 48.0ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users" for ::1 at 2020-07-31 17:35:54 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"rKgyQ/I32NGiGnVV79WuL1Y6rk9fLmRKWLL8LPbmc5jxXkH80HzftyPZoc1uUqVmkqrEupUaCpDueMxhpjcl3A==", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "27rfaKzbeHBEf3m2nM-XLQ"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 379ms (Views: 41.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 17:36:00 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 76ms (Views: 74.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2020-07-31 17:36:04 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"<input", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/1f6b33e962d00405/variables" for ::1 at 2020-07-31 17:36:04 -0600
+Started POST "/users" for ::1 at 2020-07-31 17:37:54 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"<input", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 3ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/bac6bcfbfea9b522/variables" for ::1 at 2020-07-31 17:37:54 -0600
+Started GET "/session/new" for ::1 at 2020-07-31 17:39:41 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 37ms (Views: 36.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 17:39:42 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 48ms (Views: 47.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 17:39:44 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 84ms (Views: 51.7ms | ActiveRecord: 16.6ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 17:39:46 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 72ms (Views: 71.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 17:39:48 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 72ms (Views: 70.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 17:39:49 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 59ms (Views: 57.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2020-07-31 17:39:55 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"NJEJ6HucNUYKZcwwSBrqJe+n7DEcJQmsW3audyjDwJlpZ3pXWdcyIIumGKjJneFsKzeGxNYRZ3btvJ46eBKW3Q==", "user"=>{"email"=>"test2", "password"=>"[FILTERED]"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test2"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "J-EWynUSn5AmtQHZe6AU6g"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Create (1.5ms)[0m  [1m[32mINSERT INTO "users" ("password_digest", "session_token", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["password_digest", "$2a$12$pTO4Q2Pqgo6LrxVL4BAc3uG1TomQwZc./nIP2Uu3qSPy7lEcTpFWC"], ["session_token", "J-EWynUSn5AmtQHZe6AU6g"], ["email", "test2"], ["created_at", "2020-07-31 23:39:55.378204"], ["updated_at", "2020-07-31 23:39:55.378204"]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:32
+  [1m[36mUser Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "test2"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:32
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "wG1jaAV3qK9OYtazUENzTA"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:32
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "wG1jaAV3qK9OYtazUENzTA"], ["updated_at", "2020-07-31 23:39:55.398830"], ["id", 2]]
+  ↳ app/models/user.rb:32
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:32
+  Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (0.5ms)
+  Rendering user_mailer/welcome_email.text.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.text.erb within layouts/mailer (0.5ms)
+UserMailer#welcome_email: processed outbound mail in 269.0ms
+Sent mail to test2 (54.6ms)
+Date: Fri, 31 Jul 2020 17:39:55 -0600
+From: musicappadmin@example.com
+To: test2
+Message-ID: <5f24abcbd5c6b_143c3fe8120532e871e7@Ciros-MacBook-Air.local.mail>
+Subject: Welcome to Music App!
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5f24abcbd31b6_143c3fe8120532e87063";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5f24abcbd31b6_143c3fe8120532e87063
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to Music App!
+
+Hi, test2, we hope you enjoy the site!
+
+----==_mimepart_5f24abcbd31b6_143c3fe8120532e87063
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Welcome to Music App!</h1>
+
+    <p>Hi, test2, we hope you enjoy the site!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+----==_mimepart_5f24abcbd31b6_143c3fe8120532e87063--
+
+Completed 500 Internal Server Error in 1464ms (ActiveRecord: 8.3ms)
+
+
+
+NameError - undefined local variable or method `root_url' for #<UsersController:0x00007fd0245fa630>:
+  app/controllers/users_controller.rb:9:in `create'
+
+Started POST "/__better_errors/2a4334ee18806038/variables" for ::1 at 2020-07-31 17:39:56 -0600
+Started POST "/users" for ::1 at 2020-07-31 17:43:43 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"NJEJ6HucNUYKZcwwSBrqJe+n7DEcJQmsW3audyjDwJlpZ3pXWdcyIIumGKjJneFsKzeGxNYRZ3btvJ46eBKW3Q==", "user"=>{"email"=>"test2", "password"=>"[FILTERED]"}}
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (6.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test2"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "ArTcbVo5RIayiAreoHhNJA"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 445ms (Views: 64.3ms | ActiveRecord: 21.9ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 17:43:49 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 60ms (Views: 59.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2020-07-31 17:43:53 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"<input", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 3ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/a65b6ebf52d08bba/variables" for ::1 at 2020-07-31 17:43:53 -0600
+Started POST "/users" for ::1 at 2020-07-31 17:45:45 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"<input", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/ff6aba4694ef1da8/variables" for ::1 at 2020-07-31 17:45:45 -0600
+Started POST "/users" for ::1 at 2020-07-31 17:45:49 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"rUFqHY6ro5snaRnAY5mUAX2vjZn7Nw92hC7GjJUAl7XwtxmirOCk/aaqzVjiHp9IuT/nbDEDYawy5PbBxdHB8Q==", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2S48RdF8RP-oj0lAuRD8vw"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 378ms (Views: 42.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 17:45:59 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 55ms (Views: 53.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2020-07-31 17:46:02 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"<input", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 3ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/c22079633dc7d485/variables" for ::1 at 2020-07-31 17:46:02 -0600
+Started POST "/users" for ::1 at 2020-07-31 17:50:35 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"8zROleX6JxkEOcAINpPwlzeqn8phoHugmikIjJIuT0muwj0qx7Egf4X6FJC3FPve8zr1P6uUFXos4zjBwv8ZDQ==", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VsYL2bRbUD2c_KNQ-_oUow"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 374ms (Views: 31.0ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/users" for ::1 at 2020-07-31 17:51:02 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.2.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/users/new" for ::1 at 2020-07-31 17:51:06 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 40ms (Views: 39.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 17:51:09 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 36ms (Views: 34.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2020-07-31 17:51:12 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"<input", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 3ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/__better_errors/9178f102301532a2/variables" for ::1 at 2020-07-31 17:51:12 -0600
+Started POST "/users" for ::1 at 2020-07-31 17:52:20 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"ZTfivMDv5a7kEnSEgVWFyC/LniW7ovADbjL1ninkoHs4wZED4qTiyGXRoBwA0o6B61v00HGWntnY+MXTeTX2Pw==", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7GTCNcpTsZPXUS4XC2reVg"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 365ms (Views: 25.9ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 17:52:24 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 25ms (Views: 24.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2020-07-31 17:52:27 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"<input", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "d_3IzvmnuufvrTAKz00B1g"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 353ms (Views: 26.3ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users" for ::1 at 2020-07-31 17:52:31 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"EJ5x9XScUGuS36IWXV/BUjBYVf4VgReKATFJqgnFQhYZV/toOu4PGanDZG/sNt4NsJN0uk9hwAr/0OJ2YmOOPQ==", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "NCOz73wCbLxboVYZbnai5w"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 350ms (Views: 22.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 17:54:44 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 57ms (Views: 56.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 17:54:45 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 48ms (Views: 45.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2020-07-31 17:54:49 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"<input", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "OzTuCukM29rtX2DUcZW-ow"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 399ms (Views: 51.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 17:55:36 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 43ms (Views: 42.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2020-07-31 17:55:39 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"<input", "user"=>{"email"=>"adfa", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "adfa"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "iZ0LN0OqOQ9zFuO2xl5Acw"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 384ms (Views: 39.7ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users" for ::1 at 2020-07-31 17:55:44 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"IndXa7peImnjkyJbYVOV3n5uGRB4M+x8p/jRhi7YIvm6oZ5xlZobzhBAjNmuTW9Ggi3LXhJUkB6MijTUdsg9CA==", "user"=>{"email"=>"dafd", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "dafd"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "gfDGBHdcwvdcHluC3GS_Ng"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:5
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 380ms (Views: 39.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users" for ::1 at 2020-07-31 18:05:14 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.2.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/users/new" for ::1 at 2020-07-31 18:05:18 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 118ms (Views: 26.9ms | ActiveRecord: 78.4ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 18:06:50 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 56ms (Views: 55.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-07-31 18:06:51 -0600
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 58ms (Views: 56.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 18:06:59 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 55ms (Views: 54.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2020-07-31 18:07:04 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"EANx2eQzwFdD6RW/B1IcDBacvI8VdWfY9pJ9mOs5BCRN9QJmxnjHMcIqwSeG1RdF0gzWet9BCQJAWE3Vu+hSYA==", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "gGw9Nx7n3vNzdgYhh0dsAQ"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 380ms (Views: 42.8ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/session/new" for ::1 at 2020-07-31 18:07:12 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 50ms (Views: 49.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2020-07-31 18:07:16 -0600
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"v03BXBiXW6m0ANg2SeL41fFbqaR6oT/Shb8+hlukYz7iu7LjOtxczzXDDK7IZfOcNcvDUbCVUQgzdQ7LC3U1eg==", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "y40-C2atqbiGRdcNH5z_zQ"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (1.8ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 385ms (Views: 45.6ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/users" for ::1 at 2020-07-31 18:09:07 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.2.4.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/session/new" for ::1 at 2020-07-31 18:09:12 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 45ms (Views: 43.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for ::1 at 2020-07-31 18:09:16 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"R7LvTxHVXmcZApPOaEzK8p0DaPhNrkQK5Qfb0lNYaIgaRJzwM55ZAZjBR1bpy8G7WZMCDYeaKtBTzeufA4k+zA==", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 2.9ms)
+
+
+
+NoMethodError - undefined method `is_password?' for #<User:0x00007fd0245a0b08>
+Did you mean?  is_password:
+  app/models/user.rb:14:in `find_by_credentials'
+  app/controllers/sessions_controller.rb:7:in `create'
+
+Started POST "/__better_errors/c6257cadf91465ed/variables" for ::1 at 2020-07-31 18:09:16 -0600
+Started POST "/session" for ::1 at 2020-07-31 18:09:58 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"R7LvTxHVXmcZApPOaEzK8p0DaPhNrkQK5Qfb0lNYaIgaRJzwM55ZAZjBR1bpy8G7WZMCDYeaKtBTzeufA4k+zA==", "user"=>{"email"=>"test", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "test"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "OIsc2zsWSc4Eoy7yTR-oGA"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "OIsc2zsWSc4Eoy7yTR-oGA"], ["updated_at", "2020-08-01 00:09:58.902730"], ["id", 1]]
+  ↳ app/models/user.rb:33
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:33
+Redirected to http://localhost:3000/
+Completed 302 Found in 364ms (ActiveRecord: 8.5ms)
+
+
+Started GET "/" for ::1 at 2020-07-31 18:09:58 -0600
+Started GET "/bands" for ::1 at 2020-07-31 18:09:58 -0600
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:3
+  Rendered collection of bands/_band.html.erb [3 times] (0.5ms)
+  Rendered bands/index.html.erb within layouts/application (13.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "OIsc2zsWSc4Eoy7yTR-oGA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 45ms (Views: 38.3ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/bands" for ::1 at 2020-07-31 18:10:02 -0600
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:3
+  Rendered collection of bands/_band.html.erb [3 times] (0.7ms)
+  Rendered bands/index.html.erb within layouts/application (6.9ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "OIsc2zsWSc4Eoy7yTR-oGA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 39ms (Views: 37.9ms | ActiveRecord: 0.7ms)
+
+
